@@ -10,10 +10,10 @@ export const company = {
   incorporated: "6 January 2025",
   registeredOffice: "128 City Road, London, EC1V 2NX, United Kingdom",
   owner: "Davide Hu",
-  // Wording matches the Companies House register exactly, so the two can be
-  // cross-checked without a discrepancy.
+  // The register's "75% or more" is the top band Companies House publishes, so
+  // stating the full 100% here is consistent with it, not a discrepancy.
   ownerRole:
-    "Founder and Director, and the company's sole person with significant control (75%+ of shares and voting rights)",
+    "Founder, sole Director and sole shareholder, holding 100% of the shares and voting rights",
   registerUrl:
     "https://find-and-update.company-information.service.gov.uk/company/16164794",
 };
