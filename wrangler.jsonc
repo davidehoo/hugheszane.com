@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "hugheszane-redirect",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-12",
+  "account_id": "89e21ae53cbb854d49155a588609ff28",
+  "workers_dev": true,
+  "observability": {
+    "enabled": true
+  }
+}

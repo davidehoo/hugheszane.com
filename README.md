@@ -1,6 +1,17 @@
 # hugheszane.com
 
-Redirects hugheszane.com to [holy365.app](https://holy365.app/), served by GitHub Pages.
+301-redirects `hugheszane.com` (and any path/query) to [holy365.app](https://holy365.app/), via a Cloudflare Worker.
 
-- `index.html` / `404.html` — client-side redirect (meta refresh + JS), so any path forwards.
-- `CNAME` — claims the custom domain for this repo.
+## Deploy
+
+```sh
+npx wrangler deploy
+```
+
+Worker: `hugheszane-redirect` on the `admin@hugheszane.com` Cloudflare account.
+
+## Remaining setup
+
+The domain is not yet a Cloudflare zone (nameservers still point at Google Cloud DNS).
+Once `hugheszane.com` is added to Cloudflare and its nameservers are switched, attach
+`hugheszane.com` and `www.hugheszane.com` to this Worker as Custom Domains.
