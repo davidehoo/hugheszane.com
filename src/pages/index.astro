@@ -10,7 +10,13 @@ const featured = projects.slice(0, 3);
   <section class="shell hero">
     <h1>{site.tagline}</h1>
     <p class="lede">{site.intro}</p>
-    <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+    <ul class="channels">
+      <li><a href="https://www.tiktok.com/@fill_your_cup">TikTok @fill_your_cup</a></li>
+      <li><a href="https://www.instagram.com/hugheswritings">Instagram @hugheswritings</a></li>
+      <li><a href="https://mybook.to/Fill_Your_Cup">Fill Your Cup on Amazon</a></li>
+    </ul>
+    <p class="note muted">{site.audienceNote}</p>
+    <p class="contact"><a href={`mailto:${site.email}`}>{site.email}</a></p>
   </section>
 
   <section class="shell">
@@ -34,6 +40,25 @@ const featured = projects.slice(0, 3);
     max-width: 52ch;
     margin-block: 1.5rem;
     color: var(--text-muted);
+  }
+
+  .channels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.95rem;
+  }
+
+  .note {
+    margin-block-start: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .contact {
+    margin-block-start: 1.5rem;
   }
 
   h2 {

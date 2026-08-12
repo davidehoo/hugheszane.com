@@ -1,22 +1,84 @@
 ---
 import Base from "../layouts/Base.astro";
-import { site } from "../data/site.js";
+import { site, company } from "../data/site.js";
 ---
 
-<Base title="About" description={`About ${site.name}.`}>
+<Base
+  title="About"
+  description={`${company.legalName} is a London consumer product studio founded by ${company.owner}.`}
+>
   <section class="shell page">
     <h1>About</h1>
     <div class="prose">
       <p>
-        PLACEHOLDER — two or three paragraphs about who you are and what you do. Lead with
-        the thing a stranger most needs to know, not with where you were born.
+        {company.legalName} is a consumer product studio in London, founded and led by
+        {" "}{company.owner}. We make things for people outside the industry — readers,
+        subscribers, people who found us on their phone at eleven at night — which means the
+        work is judged on whether someone finishes it, not on whether it demos well.
       </p>
       <p>
-        Second paragraph for the longer arc: what you've worked on, what you care about
-        in the work, where you're headed. Specifics beat adjectives.
+        The studio started with <a href="https://mybook.to/Fill_Your_Cup">Fill Your Cup</a>,
+        a book we wrote, published and marketed ourselves on Amazon. Everything around it was
+        built the same way: the writing, the covers, the ad creative, and the two accounts that
+        carry it — <a href="https://www.tiktok.com/@fill_your_cup">TikTok @fill_your_cup</a> and
+        {" "}<a href="https://www.instagram.com/hugheswritings">Instagram @hugheswritings</a>,
+        now around a million followers between them. Running a book launch and a daily posting
+        habit at that size teaches the same lesson repeatedly: retention is a content problem
+        before it is ever a product problem.
       </p>
       <p>
-        Close with how to reach you. Best at <a href={`mailto:${site.email}`}>{site.email}</a>.
+        That work now feeds the software. We design and build subscription apps end to end —
+        onboarding, paywall, pricing, trials and renewals — and treat the first ninety seconds
+        of a new user's experience as the whole product. We handle the entire chain ourselves,
+        from the first line of copy to the App Store listing, which keeps the loop between what
+        the audience says and what ships measured in days rather than quarters.
+      </p>
+      <p>
+        Best reached at <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+    </div>
+
+    <div class="entity">
+      <h2 id="company-details">Company details</h2>
+      <p class="muted intro">
+        Published here so this domain can be matched to the registered company and its owner.
+      </p>
+      <dl>
+        <div>
+          <dt>Legal entity name</dt>
+          <dd>{company.legalName}</dd>
+        </div>
+        <div>
+          <dt>Company number</dt>
+          <dd>
+            <a href={company.registerUrl}>{company.number}</a> — {company.registrar}
+          </dd>
+        </div>
+        <div>
+          <dt>Incorporated</dt>
+          <dd>{company.incorporated}</dd>
+        </div>
+        <div>
+          <dt>Registered office</dt>
+          <dd>{company.registeredOffice}</dd>
+        </div>
+        <div>
+          <dt>Ownership</dt>
+          <dd>{company.owner} — {company.ownerRole}</dd>
+        </div>
+        <div>
+          <dt>Website</dt>
+          <dd><a href="https://hugheszane.com/">hugheszane.com</a>, owned and operated by {company.legalName}</dd>
+        </div>
+        <div>
+          <dt>Contact</dt>
+          <dd><a href={`mailto:${site.email}`}>{site.email}</a></dd>
+        </div>
+      </dl>
+      <p class="muted small">
+        {company.legalName} is the legal entity behind everything on this site, including
+        Fill Your Cup and any apps published under its name. Company records are public and can
+        be checked on the <a href={company.registerUrl}>Companies House register</a>.
       </p>
     </div>
   </section>
@@ -39,5 +101,53 @@ import { site } from "../data/site.js";
 
   .prose p + p {
     margin-block-start: 1.4rem;
+  }
+
+  .entity {
+    margin-block-start: 4rem;
+    padding-block-start: 2.5rem;
+    border-top: 1px solid var(--border);
+    max-width: 60ch;
+  }
+
+  .entity h2 {
+    font-size: 1.3rem;
+  }
+
+  .intro {
+    margin-block: 0.6rem 1.75rem;
+    font-size: 0.95rem;
+  }
+
+  dl {
+    margin: 0;
+    display: grid;
+    gap: 1rem;
+  }
+
+  dl > div {
+    display: grid;
+    grid-template-columns: minmax(9rem, 12rem) 1fr;
+    gap: 0.25rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  dt {
+    color: var(--text-muted);
+  }
+
+  dd {
+    margin: 0;
+  }
+
+  .small {
+    margin-block-start: 2rem;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 34rem) {
+    dl > div {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
