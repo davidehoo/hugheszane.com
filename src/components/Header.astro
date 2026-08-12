@@ -1,0 +1,64 @@
+---
+import { site, nav } from "../data/site.js";
+
+const path = Astro.url.pathname;
+---
+
+<header>
+  <div class="shell bar">
+    <a class="wordmark" href="/">{site.name}</a>
+    <nav aria-label="Primary">
+      {
+        nav.map((item) => (
+          <a href={item.href} aria-current={path === item.href ? "page" : undefined}>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    padding-block: 1.5rem;
+  }
+
+  .wordmark {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  nav {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+  }
+
+  nav a:hover,
+  nav a[aria-current="page"] {
+    color: var(--text);
+  }
+
+  nav a[aria-current="page"] {
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+  }
+</style>

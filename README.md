@@ -1,17 +1,20 @@
 # hugheszane.com
 
-301-redirects `hugheszane.com` (and any path/query) to [holy365.app](https://holy365.app/), via a Cloudflare Worker.
-
-## Deploy
+Personal site, built with [Astro](https://astro.build).
 
 ```sh
-npx wrangler deploy
+npm install
+npm run dev      # http://localhost:4321
+npm run build    # -> dist/
 ```
 
-Worker: `hugheszane-redirect` on the `admin@hugheszane.com` Cloudflare account.
+## Editing
 
-## Remaining setup
+- `src/data/site.js` — name, tagline, intro, email, links, and the projects list. Most edits happen here.
+- `src/pages/` — one file per route (`index`, `work`, `about`, `404`).
+- `src/styles/global.css` — colors and type. Light and dark palettes are both defined here.
 
-The domain is not yet a Cloudflare zone (nameservers still point at Google Cloud DNS).
-Once `hugheszane.com` is added to Cloudflare and its nameservers are switched, attach
-`hugheszane.com` and `www.hugheszane.com` to this Worker as Custom Domains.
+## Deploying
+
+Not yet deployed. Hosting only requires changing the A and CNAME records on
+`hugheszane.com` — the Google Workspace MX records stay untouched.

@@ -1,0 +1,43 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../data/site.js";
+---
+
+<Base title="About" description={`About ${site.name}.`}>
+  <section class="shell page">
+    <h1>About</h1>
+    <div class="prose">
+      <p>
+        PLACEHOLDER — two or three paragraphs about who you are and what you do. Lead with
+        the thing a stranger most needs to know, not with where you were born.
+      </p>
+      <p>
+        Second paragraph for the longer arc: what you've worked on, what you care about
+        in the work, where you're headed. Specifics beat adjectives.
+      </p>
+      <p>
+        Close with how to reach you. Best at <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page {
+    padding-block: clamp(2.5rem, 8vw, 4.5rem) 0;
+  }
+
+  h1 {
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    margin-block-end: 2rem;
+  }
+
+  .prose {
+    max-width: 60ch;
+    font-size: 1.075rem;
+  }
+
+  .prose p + p {
+    margin-block-start: 1.4rem;
+  }
+</style>

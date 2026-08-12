@@ -1,0 +1,47 @@
+---
+import Base from "../layouts/Base.astro";
+import ProjectList from "../components/ProjectList.astro";
+import { site, projects } from "../data/site.js";
+
+const featured = projects.slice(0, 3);
+---
+
+<Base>
+  <section class="shell hero">
+    <h1>{site.tagline}</h1>
+    <p class="lede">{site.intro}</p>
+    <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+  </section>
+
+  <section class="shell">
+    <h2>Selected work</h2>
+    <ProjectList items={featured} />
+    <p class="more"><a href="/work/">All work →</a></p>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding-block: clamp(3rem, 10vw, 6rem) 4rem;
+  }
+
+  .hero h1 {
+    max-width: 18ch;
+  }
+
+  .lede {
+    font-size: 1.2rem;
+    max-width: 52ch;
+    margin-block: 1.5rem;
+    color: var(--text-muted);
+  }
+
+  h2 {
+    margin-block-end: 2rem;
+  }
+
+  .more {
+    margin-block-start: 2.5rem;
+    font-size: 0.95rem;
+  }
+</style>

@@ -1,0 +1,52 @@
+---
+const { items } = Astro.props;
+---
+
+<ul class="projects">
+  {
+    items.map((project) => (
+      <li>
+        <div class="head">
+          <h3>
+            {project.href ? <a href={project.href}>{project.title}</a> : project.title}
+          </h3>
+          <span class="muted year">{project.year}</span>
+        </div>
+        <p class="muted">{project.blurb}</p>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .projects {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .projects li + li {
+    margin-block-start: 2rem;
+    padding-block-start: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-block-end: 0.4rem;
+  }
+
+  h3 {
+    font-size: 1.15rem;
+    margin: 0;
+  }
+
+  .year {
+    font-size: 0.85rem;
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
+</style>

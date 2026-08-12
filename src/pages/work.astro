@@ -1,0 +1,37 @@
+---
+import Base from "../layouts/Base.astro";
+import ProjectList from "../components/ProjectList.astro";
+import { projects } from "../data/site.js";
+---
+
+<Base title="Work" description="Selected projects.">
+  <section class="shell page">
+    <h1>Work</h1>
+    <p class="lede muted">
+      A few things worth showing. Add or remove entries in <code>src/data/site.js</code>.
+    </p>
+    <ProjectList items={projects} />
+  </section>
+</Base>
+
+<style>
+  .page {
+    padding-block: clamp(2.5rem, 8vw, 4.5rem) 0;
+  }
+
+  h1 {
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+  }
+
+  .lede {
+    margin-block: 1.25rem 3rem;
+    max-width: 50ch;
+  }
+
+  code {
+    font-size: 0.9em;
+    background: var(--surface);
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+  }
+</style>
